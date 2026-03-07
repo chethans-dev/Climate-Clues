@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Climate Clues | Modern Weather Analytics</title>
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <main class="app-container">
+      <!-- Dashboard Header -->
+      <header class="search-section">
+        <div class="search-bar">
+          <i data-lucide="search" class="search-icon"></i>
+          <input
+            type="text"
+            id="city-input"
+            placeholder="Enter a city name..."
+            autocomplete="off"
+          />
+          <button id="search-btn" class="btn-primary">Search</button>
+        </div>
+        <div class="user-location-info" id="location-display">
+          <h1 id="city-name">Weather Analytics</h1>
+          <p id="date-time">Find clues about the climate around you.</p>
+        </div>
+      </header>
+
+      <!-- Main Dashboard Content -->
+      <section class="dashboard-grid">
+        <!-- Left Panel: Current Weather -->
+        <aside class="glass-card current-weather">
+          <div class="weather-visual">
+            <img
+              id="weather-icon"
+              src=""
+              alt="Weather Icon"
+              class="main-icon hidden"
+            />
+            <div id="loading-spinner" class="spinner hidden"></div>
+          </div>
+          <div class="temp-container">
+            <span id="temp-value">--</span>
+            <span class="unit">°C</span>
+          </div>
+          <div id="weather-condition" class="condition-text">Enter City</div>
+          <div class="high-low">
+            <span
+              ><i data-lucide="arrow-up" class="mini-icon hot"></i> H:
+              <span id="temp-max">--</span>°</span
+            >
+            <span
+              ><i data-lucide="arrow-down" class="mini-icon cold"></i> L:
+              <span id="temp-min">--</span>°</span
+            >
+          </div>
+        </aside>
+
+        <!-- Right Panel: Analytics Cards -->
+        <div class="metrics-container">
+          <div class="glass-card metric-card fade-in">
+            <div class="card-header">
+              <i data-lucide="wind"></i>
+              <span>Wind Speed</span>
+            </div>
+            <div class="card-value" id="wind-speed">-- m/s</div>
+          </div>
+
+          <div class="glass-card metric-card fade-in">
+            <div class="card-header">
+              <i data-lucide="droplets"></i>
+              <span>Humidity</span>
+            </div>
+            <div class="card-value" id="humidity">-- %</div>
+          </div>
+
+          <div class="glass-card metric-card fade-in">
+            <div class="card-header">
+              <i data-lucide="thermometer"></i>
+              <span>Feels Like</span>
+            </div>
+            <div class="card-value" id="feels-like">-- °C</div>
+          </div>
+
+          <div class="glass-card metric-card fade-in">
+            <div class="card-header">
+              <i data-lucide="gauge"></i>
+              <span>Pressure</span>
+            </div>
+            <div class="card-value" id="pressure">-- hPa</div>
+          </div>
+
+          <div class="glass-card metric-card fade-in">
+            <div class="card-header">
+              <i data-lucide="eye"></i>
+              <span>Visibility</span>
+            </div>
+            <div class="card-value" id="visibility">-- km</div>
+          </div>
+
+          <div class="glass-card metric-card fade-in">
+            <div class="card-header">
+              <i data-lucide="sunrise"></i>
+              <span>Sunrise</span>
+            </div>
+            <div class="card-value" id="sunrise-time">--:--</div>
+          </div>
+
+          <div class="glass-card metric-card fade-in">
+            <div class="card-header">
+              <i data-lucide="sunset"></i>
+              <span>Sunset</span>
+            </div>
+            <div class="card-value" id="sunset-time">--:--</div>
+          </div>
+
+          <div class="glass-card metric-card fade-in">
+            <div class="card-header">
+              <i data-lucide="map-pin"></i>
+              <span>Coordinates</span>
+            </div>
+            <div class="card-value compact" id="coords">-- , --</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer Analytics Hint -->
+      <footer class="insight-footer">
+        <p id="insight-text">
+          Tip: Use higher resolution sensors for better climate clues.
+        </p>
+      </footer>
+    </main>
+
+    <script type="module" src="./App.js"></script>
+    <script>
+      // Initialize Lucide icons
+      window.onload = () => lucide.createIcons();
+    </script>
+  </body>
+</html>

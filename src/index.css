@@ -24,14 +24,21 @@ body {
   background: #050505;
 }
 
+#root {
+  height: 100%;
+}
+
 .app-container {
   height: 100vh;
   width: 100%;
-  background: url("./background.png") no-repeat center center/cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   padding: 2rem 4rem;
   position: relative;
+  transition: background-image 0.8s ease-in-out;
   color: var(--text-main);
 }
 
@@ -44,7 +51,6 @@ body {
   z-index: 1;
 }
 
-/* Ensure content stays above overlay */
 .search-section,
 .dashboard-grid,
 .insight-footer {
@@ -52,7 +58,6 @@ body {
   z-index: 2;
 }
 
-/* Header & Search */
 .search-section {
   display: flex;
   justify-content: space-between;
@@ -84,7 +89,7 @@ body {
   width: 20px;
 }
 
-#city-input {
+.search-bar input {
   background: transparent;
   border: none;
   color: white;
@@ -94,7 +99,7 @@ body {
   padding: 0.5rem 0;
 }
 
-#city-input::placeholder {
+.search-bar input::placeholder {
   color: var(--text-dim);
 }
 
@@ -119,7 +124,7 @@ body {
   text-align: right;
 }
 
-#city-name {
+.city-title {
   font-size: 2.5rem;
   font-weight: 700;
   background: linear-gradient(90deg, #fff, var(--primary-color));
@@ -128,13 +133,12 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-#date-time {
+.date-subtitle {
   color: var(--text-dim);
   font-size: 1rem;
   margin-top: 0.3rem;
 }
 
-/* Dashboard Grid */
 .dashboard-grid {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -156,7 +160,6 @@ body {
   transform: translateY(-5px);
 }
 
-/* Current Weather Panel */
 .current-weather {
   display: flex;
   flex-direction: column;
@@ -206,19 +209,6 @@ body {
   font-size: 1.1rem;
 }
 
-.mini-icon {
-  width: 18px;
-  vertical-align: middle;
-}
-
-.hot {
-  color: #ff5f5f;
-}
-.cold {
-  color: #5fbfff;
-}
-
-/* Metrics Grid */
 .metrics-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -256,7 +246,6 @@ body {
   font-size: 1.1rem;
 }
 
-/* Animations */
 @keyframes float {
   0%,
   100% {
@@ -282,7 +271,6 @@ body {
   }
 }
 
-/* Spinner */
 .spinner {
   width: 50px;
   height: 50px;
@@ -298,11 +286,6 @@ body {
   }
 }
 
-.hidden {
-  display: none !important;
-}
-
-/* Footer */
 .insight-footer {
   padding: 1rem 0;
   text-align: center;
@@ -310,7 +293,6 @@ body {
   font-size: 0.9rem;
 }
 
-/* Responsive */
 @media (max-width: 1200px) {
   .metrics-container {
     grid-template-columns: repeat(2, 1fr);
