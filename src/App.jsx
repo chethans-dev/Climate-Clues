@@ -15,7 +15,7 @@ import {
 import { analytics } from "./utils/analytics";
 import "./index.css";
 
-const API_KEY = "d092a2d1219fceb3877c07106c328d54";
+const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
 const backgroundMap = {
   Clear:
